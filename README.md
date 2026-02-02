@@ -2,6 +2,9 @@
 
 This is a simple backend for a Mobile Money (Momo) application. It handles user registration, login, and basic money transactions. The project is built using Python's built-in HTTP server and stores data in memory while the server is running.
 
+## Team Task Sheet Link
+https://docs.google.com/spreadsheets/d/1LWW4dxrE89CGnTajTj1NdM0wylfIUCB1LT4SD9t-K7I/edit?usp=sharing
+
 ## Features
 
 - **User Authentication**: Secure signup and login using JWT tokens and password hashing.
@@ -11,12 +14,14 @@ This is a simple backend for a Mobile Money (Momo) application. It handles user 
 
 ## Project Structure
 
-- `server.py`: The entry point that sets up the HTTP server and routes requests.
-- `handlers/`: Contains the logic for different parts of the API (auth and transactions).
-- `models/`: Defines how Users and Transactions are structured.
-- `parsers/`: Includes logic to read and import data from XML files.
-- `utils.py`: Helper functions for JSON responses, JWT handling, and password security.
+- `api/`: Contains the logic for different parts of the API (auth and transactions).
+- `dsa/`: Includes logic to read and import data from XML files, defines how Users and Transactions are structured.
+- `Docs/`: Includes the report document file of this project.
+- `Screenshots/`: includes all the functionality success tests of the project.
 - `database.py`: A central file that holds all data (users and transactions) in memory.
+- `server.py`: The entry point that sets up the HTTP server and routes requests.
+- `utils.py`: Helper functions for JSON responses, JWT handling, and password security.
+
 
 ## Getting Started
 
@@ -199,7 +204,7 @@ Most endpoints require a JWT token. Send it in the header as: `Authorization: Be
 
 - **Update Failed (Not Admin)**:
 ![Update Permission Denied](./screenshots/update_without_being_admin.png)
-- **Note**: Only the transaction type can be updated and this operation is restricted to Admin users.
+- **Note**: Only the transaction type can be updated, and this operation is restricted to Admin users.
 
 #### Delete Transaction
 - **URL**: `/transactions/<id>`
@@ -215,3 +220,4 @@ Most endpoints require a JWT token. Send it in the header as: `Authorization: Be
 
 ## Unit Testing
 pipenv run pytest
+
