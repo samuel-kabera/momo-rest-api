@@ -1,4 +1,4 @@
-from models.transaction import Transaction
+from api.models.transaction import Transaction
 from utils import json_response, read_json_body, jwt_required
 
 @jwt_required

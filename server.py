@@ -2,11 +2,11 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import sys
 import os
 
-# Ensure we can import from the current directory
+# Ensure we import from the current directory
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from handlers.auth import handle_register, handle_login, handle_logout
-from handlers.transactions import (
+from api.handlers.auth import handle_register, handle_login, handle_logout
+from api.handlers.transactions import (
     handle_add_transaction, 
     handle_get_transactions,
     handle_get_transaction_by_id,
@@ -15,7 +15,7 @@ from handlers.transactions import (
     handle_update_transaction,
     handle_delete_transaction
 )
-from parsers.xml_parser import parse_xml_file
+from dsa.xml_parser import parse_xml_file
 
 def parse_transaction_path(path):
     """Extract route type and ID from path like /transactions/123 or /indexed_transactions/123"""
@@ -73,7 +73,7 @@ class APIRRequestHandler(BaseHTTPRequestHandler):
 
 def run(server_class=HTTPServer, handler_class=APIRRequestHandler, port=5000):
     # Load seed data from XML
-    xml_file = os.path.join(os.path.dirname(__file__), 'parsers', 'modified_sms_v2.xml')
+    xml_file = os.path.join(os.path.dirname(__file__), 'dsa', 'modified_sms_v2.xml')
     if os.path.exists(xml_file):
         count = parse_xml_file(xml_file)
         print(f"Loaded {count} seed transactions from xml file")

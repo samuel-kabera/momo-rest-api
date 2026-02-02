@@ -1,4 +1,4 @@
-from models.user import User
+from api.models.user import User
 from utils import json_response, read_json_body, hash_password, check_password, create_jwt_token, jwt_required
 
 def handle_register(handler):
